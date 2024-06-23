@@ -6,12 +6,12 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: temelio
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
     ports:
       - "3306:3306"
     volumes:
       - db-data:/var/lib/mysql
+    networks:
+      - mynetwork
 
   springboot:
     build:
@@ -25,15 +25,21 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/temelio
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
+    networks:
+      - mynetwork
+
   react:
     build:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
       - "3000:80"
+    networks:
+      - mynetwork
 
 volumes:
   db-data:
 
-
-
+networks:
+  mynetwork:
+    driver: bridge
