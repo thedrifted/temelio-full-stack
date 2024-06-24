@@ -1,7 +1,7 @@
 #!/bin/bash
 
-FRONTEND_REPO="git@github.com:thedrifted/temelio-frontend.git"
-BACKEND_REPO="git@github.com:thedrifted/temelio-backend.git"
+FRONTEND_REPO="https://github.com/thedrifted/temelio-frontend.git"
+BACKEND_REPO="https://github.com/thedrifted/temelio-backend.git"
 
 FRONTEND_DIR="./frontend"
 BACKEND_DIR="./backend"
